@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processed Results</title>
+</head>
+<body>
+    <h1>Grad-CAM Output</h1>
+    {% for original, heatmap, label in images %}
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div>
+                <h3>{{ label }}</h3>
+                <img src="{{ url_for('serve_output_file', filename=original) }}" width="400">
+            </div>
+            <div>
+                <h3>Grad-CAM Heatmap</h3>
+                <img src="{{ url_for('serve_output_file', filename=heatmap) }}" width="400">
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
